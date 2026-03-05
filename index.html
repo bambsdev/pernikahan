@@ -6,11 +6,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>The Wedding of Fenny & Mu'adz</title>
-    <meta property="og:title" content="The Wedding of Dzakiyyah & Mu'adz" />
+    <title>Kado Kecil — dari Santrikita Group</title>
+    <meta property="og:title" content="Kado Kecil — dari Santrikita Group" />
     <meta
       property="og:description"
-      content="Undangan Pernikahan Dzakiyyah & Mu'adz pada 11 April 2026"
+      content="Kumpulan undangan digital, sebuah kado kecil dari hati untuk sahabat."
     />
     <meta
       property="og:image"
@@ -28,12 +28,12 @@
     />
     <style>
       :root {
-        --bg-body: #d1d5db; /* Warna abu-abu untuk area luar mobile */
-        --bg-main: #fdfcf0; /* Warna cream kertas undangan */
-        --text-main: #4b5563; /* Abu-abu gelap */
+        --bg-body: #d1d5db;
+        --bg-main: #fdfcf0;
+        --text-main: #4b5563;
         --text-dark: #1f2937;
-        --accent: #6b7280; /* Warna aksen sage green / gray */
-        --gold: #b4985b; /* Warna emas elegan */
+        --accent: #6b7280;
+        --gold: #b4985b;
         --gold-light: #dfc894;
       }
 
@@ -53,10 +53,9 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* --- Pembatas Tampilan Mobile --- */
       .mobile-container {
         width: 100%;
-        max-width: 480px; /* Ukuran maksimal hp */
+        max-width: 480px;
         background-color: var(--bg-main);
         min-height: 100vh;
         position: relative;
@@ -72,119 +71,131 @@
         font-family: "Playfair Display", serif;
       }
 
-      .arabic {
-        font-family: "Amiri", serif;
+      /* --- Header Section --- */
+      .header-section {
+        padding: 80px 25px 50px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
       }
 
-      /* --- Bagian Sampul (Cover) --- */
-      #cover {
+      .header-section::before {
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--bg-main);
         background-image:
-          linear-gradient(rgba(253, 252, 240, 0.85), rgba(253, 252, 240, 0.95)),
-          url("https://images.unsplash.com/photo-1550684376-efcbd05fa3f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"); /* Gambar bunga ilustrasi */
+          linear-gradient(rgba(253, 252, 240, 0.88), rgba(253, 252, 240, 0.95)),
+          url("https://images.unsplash.com/photo-1550684376-efcbd05fa3f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80");
         background-size: cover;
         background-position: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        z-index: 100;
-        transition:
-          transform 1.2s cubic-bezier(0.77, 0, 0.175, 1),
-          opacity 1s ease-in-out;
-        padding: 30px;
+        z-index: 0;
       }
 
-      .cover-title {
-        font-size: 0.9rem;
-        letter-spacing: 4px;
-        color: var(--text-main);
-        margin-bottom: 20px;
-        text-transform: uppercase;
+      .header-content {
+        position: relative;
+        z-index: 1;
       }
 
-      .cover-names {
-        font-size: 3.2rem;
+      .header-icon {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 20px;
         color: var(--gold);
-        margin-bottom: 15px;
-        line-height: 1.1;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
-      }
-
-      .cover-date {
-        font-size: 1rem;
-        margin-bottom: 50px;
-        letter-spacing: 2px;
-        color: var(--text-dark);
-        border-top: 1px solid var(--gold);
-        border-bottom: 1px solid var(--gold);
-        padding: 8px 0;
-        width: 80%;
-      }
-
-      .guest-info {
-        margin-bottom: 40px;
-        font-size: 0.9rem;
-        background: rgba(255, 255, 255, 0.7);
-        padding: 15px 30px;
-        border-radius: 10px;
-        border: 1px solid rgba(180, 152, 91, 0.3);
-        backdrop-filter: blur(5px);
-      }
-
-      .guest-name {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        margin-top: 5px;
-      }
-
-      .btn-open {
-        background: linear-gradient(135deg, var(--gold), var(--gold-light));
-        color: white;
-        border: none;
-        padding: 14px 35px;
-        border-radius: 30px;
-        font-size: 1rem;
-        font-family: "Inter", sans-serif;
-        font-weight: 500;
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(180, 152, 91, 0.4);
-        transition: all 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .btn-open:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(180, 152, 91, 0.6);
-      }
-
-      .btn-open:active {
-        transform: scale(0.95);
-      }
-
-      /* --- Konten Utama --- */
-      #main-content {
-        display: none;
         opacity: 0;
-        padding-bottom: 10px;
+        animation: fadeSlideDown 1s ease 0.2s forwards;
       }
 
-      section {
-        padding: 70px 25px;
+      .header-title {
+        font-size: 2.8rem;
+        color: var(--gold);
+        line-height: 1.1;
+        margin-bottom: 12px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        animation: fadeSlideDown 1s ease 0.4s forwards;
+      }
+
+      .header-subtitle {
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+        color: var(--text-main);
+        opacity: 0;
+        animation: fadeSlideDown 1s ease 0.6s forwards;
+        margin-bottom: 15px;
+      }
+
+      .divider-line {
+        width: 40px;
+        height: 2px;
+        background-color: var(--gold);
+        margin: 25px auto;
+        border-radius: 2px;
+        opacity: 0;
+        animation: fadeSlideDown 1s ease 0.8s forwards;
+      }
+
+      /* --- Story Section --- */
+      .story-section {
+        padding: 0 25px 50px;
+      }
+
+      .story-card {
+        background-color: var(--text-dark);
+        color: #f3f4f6;
+        padding: 35px 25px;
+        border-radius: 20px;
         text-align: center;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        animation: fadeScale 1s ease 1s forwards;
+      }
+
+      .story-card h3 {
+        color: var(--gold-light);
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+      }
+
+      .story-text {
+        font-size: 0.88rem;
+        line-height: 1.9;
+        color: #cbd5e1;
+        text-align: left;
+      }
+
+      .story-text p {
+        margin-bottom: 14px;
+      }
+
+      .story-text p:last-child {
+        margin-bottom: 0;
+      }
+
+      .story-signature {
+        margin-top: 22px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(223, 200, 148, 0.2);
+        font-size: 0.8rem;
+        color: var(--gold-light);
+        font-style: italic;
+        text-align: right;
+      }
+
+      /* --- Invitation List Section --- */
+      .list-section {
+        padding: 50px 25px;
+        text-align: center;
+        background-color: white;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
         position: relative;
       }
 
-      .section-bg-flower {
+      .list-section::before {
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -197,60 +208,44 @@
         pointer-events: none;
       }
 
-      .content-wrapper {
+      .list-content {
         position: relative;
         z-index: 1;
       }
 
-      .divider-line {
-        width: 40px;
-        height: 2px;
-        background-color: var(--gold);
-        margin: 20px auto;
-        border-radius: 2px;
-      }
-
-      /* Tipografi */
-      .quran-verse {
-        font-size: 0.95rem;
-        font-style: italic;
-        line-height: 1.8;
-        color: var(--text-main);
-        padding: 0 10px;
-      }
-
-      .section-title {
-        font-size: 2rem;
+      .list-title {
+        font-size: 1.6rem;
         color: var(--gold);
-        margin-bottom: 15px;
+        margin-bottom: 8px;
       }
 
-      .couple-name {
-        font-size: 2.2rem;
-        color: var(--text-dark);
-        margin: 15px 0 5px 0;
-      }
-
-      .parent-name {
+      .list-subtitle {
         font-size: 0.85rem;
         color: var(--text-main);
         margin-bottom: 30px;
-        line-height: 1.5;
       }
 
-      /* Kartu Acara */
-      .event-card {
-        background: #ffffff;
-        padding: 35px 25px;
+      /* --- Invitation Card --- */
+      .invitation-card {
+        display: block;
+        background: var(--bg-main);
+        padding: 28px 22px;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-        margin-bottom: 25px;
+        margin-bottom: 18px;
         border: 1px solid rgba(180, 152, 91, 0.15);
+        text-decoration: none;
+        color: inherit;
         position: relative;
         overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        opacity: 0;
+        animation: fadeSlideUp 0.8s ease 1.2s forwards;
       }
 
-      .event-card::before {
+      .invitation-card::before {
         content: "";
         position: absolute;
         top: 0;
@@ -260,831 +255,438 @@
         background: linear-gradient(90deg, var(--gold), var(--gold-light));
       }
 
-      .event-title {
-        font-size: 1.6rem;
-        color: var(--gold);
-        margin-bottom: 15px;
-        letter-spacing: 1px;
+      .invitation-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(180, 152, 91, 0.15);
       }
 
-      .event-detail {
-        font-size: 0.95rem;
-        margin: 8px 0;
-        line-height: 1.6;
+      .invitation-card:active {
+        transform: scale(0.98);
       }
 
-      .event-detail strong {
-        color: var(--text-dark);
-        font-weight: 600;
-      }
-
-      /* Adab Walimah */
-      .adab-card {
-        background-color: var(--text-dark);
-        color: #f3f4f6;
-        padding: 40px 25px;
-        border-radius: 20px;
-        text-align: left;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .adab-card h3 {
-        color: var(--gold-light);
-        text-align: center;
-        font-size: 1.8rem;
-        margin-bottom: 20px;
-      }
-
-      .adab-list {
-        list-style: none;
-        margin-top: 20px;
-      }
-
-      .adab-list li {
-        position: relative;
-        padding-left: 30px;
-        margin-bottom: 15px;
-        font-size: 0.95rem;
-        line-height: 1.6;
-      }
-
-      .adab-list li::before {
-        content: "•";
-        position: absolute;
-        left: 0;
-        top: -2px;
-        color: var(--gold-light);
-        font-size: 1.5rem;
-      }
-
-      /* Turut Mengundang */
-      .mengundang-list {
-        font-size: 0.9rem;
-        line-height: 1.8;
+      .card-label {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
         color: var(--text-main);
-        text-align: center;
-      }
-
-      /* Buku Tamu */
-      .guestbook-container {
-        background: white;
-        padding: 30px 20px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-        text-align: left;
-        border: 1px solid rgba(180, 152, 91, 0.15);
-      }
-
-      .form-group {
-        margin-bottom: 18px;
-      }
-
-      .form-group label {
-        display: block;
         margin-bottom: 8px;
-        font-size: 0.9rem;
+      }
+
+      .card-names {
+        font-size: 1.8rem;
+        color: var(--text-dark);
+        line-height: 1.2;
+        margin-bottom: 10px;
+      }
+
+      .card-date {
+        font-size: 0.85rem;
+        color: var(--gold);
         font-weight: 500;
-        color: var(--text-dark);
-      }
-
-      .form-group input,
-      .form-group textarea {
-        width: 100%;
-        padding: 14px;
-        border: 1px solid #e5e7eb;
-        border-radius: 10px;
-        font-family: "Inter", sans-serif;
-        font-size: 0.95rem;
-        background-color: #f9fafb;
-        transition:
-          border-color 0.3s,
-          box-shadow 0.3s;
-      }
-
-      .form-group input:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: var(--gold);
-        box-shadow: 0 0 0 3px rgba(180, 152, 91, 0.1);
-        background-color: white;
-      }
-
-      .btn-submit {
-        background: var(--text-dark);
-        color: white;
-        border: none;
-        padding: 14px;
-        width: 100%;
-        border-radius: 10px;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 1rem;
-        font-family: "Inter", sans-serif;
-        transition: background 0.3s;
-      }
-
-      .btn-submit:hover {
-        background: #374151;
-      }
-
-      #guest-list {
-        margin-top: 35px;
-        max-height: 350px;
-        overflow-y: auto;
-        padding-right: 5px;
-      }
-
-      /* Kustom scrollbar untuk guest list */
-      #guest-list::-webkit-scrollbar {
-        width: 6px;
-      }
-      #guest-list::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-      }
-      #guest-list::-webkit-scrollbar-thumb {
-        background: #d1d5db;
-        border-radius: 10px;
-      }
-
-      .guest-item {
-        background: #f9fafb;
-        padding: 18px;
-        border-radius: 12px;
-        margin-bottom: 15px;
-        border-left: 4px solid var(--gold);
-        transition:
-          transform 0.3s,
-          opacity 0.3s;
-      }
-
-      .guest-item h4 {
-        margin-bottom: 6px;
-        font-size: 1rem;
-        color: var(--text-dark);
         display: flex;
         align-items: center;
-        gap: 8px;
+        justify-content: center;
+        gap: 6px;
       }
 
-      .guest-item p {
-        font-size: 0.9rem;
-        color: #4b5563;
-        line-height: 1.5;
+      .card-arrow {
+        position: absolute;
+        right: 22px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gold);
+        opacity: 0.5;
+        transition:
+          opacity 0.3s,
+          transform 0.3s;
       }
 
-      .badge-hadir {
-        font-size: 0.7rem;
+      .invitation-card:hover .card-arrow {
+        opacity: 1;
+        transform: translateY(-50%) translateX(4px);
+      }
+
+      /* --- Badge Status --- */
+      .card-badge {
+        display: inline-block;
+        font-family: "Inter", sans-serif;
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 3px 10px;
+        border-radius: 20px;
+        margin-top: 10px;
+      }
+
+      .badge-upcoming {
         background: #dcfce7;
         color: #166534;
-        padding: 2px 8px;
+      }
+
+      .badge-past {
+        background: #f3f4f6;
+        color: #6b7280;
+      }
+
+      /* --- WhatsApp Button --- */
+      .wa-section {
+        padding: 40px 25px 30px;
+        text-align: center;
+      }
+
+      .wa-text {
+        font-size: 0.85rem;
+        color: var(--text-main);
+        margin-bottom: 18px;
+        line-height: 1.6;
+        opacity: 0;
+        animation: fadeSlideUp 0.8s ease 1.4s forwards;
+      }
+
+      .btn-wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #25d366;
+        color: white;
+        border: none;
+        padding: 14px 30px;
+        border-radius: 30px;
+        font-size: 0.95rem;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        transition: all 0.3s;
+        opacity: 0;
+        animation: fadeSlideUp 0.8s ease 1.5s forwards;
+      }
+
+      .btn-wa:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+      }
+
+      .btn-wa:active {
+        transform: scale(0.95);
+      }
+
+      /* --- Footer --- */
+      .footer-section {
+        padding: 20px 25px 35px;
+        text-align: center;
+      }
+
+      .footer-card {
+        background-color: var(--text-dark);
         border-radius: 20px;
+        padding: 30px 25px 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .footer-icon {
+        width: 28px;
+        height: 28px;
+        color: var(--gold-light);
+        margin-bottom: 12px;
+        opacity: 0.7;
+      }
+
+      .footer-domain {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        /* text-transform: uppercase; */
+        color: var(--gold-light);
+        margin-bottom: 14px;
         font-weight: 500;
       }
 
-      /* --- Animasi --- */
-      .anim {
-        opacity: 0;
-        will-change: opacity, transform, filter;
-        transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1); /* Efek smooth easing */
+      .footer-divider {
+        width: 30px;
+        height: 1px;
+        background-color: rgba(223, 200, 148, 0.25);
+        margin: 0 auto 14px;
+        border-radius: 2px;
       }
 
-      /* Blur to clear */
-      .blur-in {
-        filter: blur(12px);
-        transform: scale(1.02);
-      }
-      .blur-in.visible {
-        opacity: 1;
-        filter: blur(0);
-        transform: scale(1);
-      }
-
-      /* Slide up */
-      .slide-up {
-        transform: translateY(40px);
-      }
-      .slide-up.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Slide Right */
-      .slide-right {
-        transform: translateX(-40px);
-      }
-      .slide-right.visible {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      /* Slide Left */
-      .slide-left {
-        transform: translateX(40px);
-      }
-      .slide-left.visible {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      /* Fade in */
-      .fade-in {
-        transform: scale(0.95);
-      }
-      .fade-in.visible {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      /* --- Audio Button --- */
-      .audio-wrapper {
-        position: fixed;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        max-width: 480px;
-        pointer-events: none; /* Agar area kosong tidak menghalangi klik */
-        z-index: 999;
-        display: flex;
-        justify-content: flex-end;
-        padding-right: 25px;
-      }
-
-      #audio-toggle {
-        pointer-events: auto; /* Mengaktifkan klik kembali di area tombol */
-        background: var(--gold);
-        color: white;
-        border: none;
-        width: 42px;
-        height: 42px;
-        border-radius: 10px; /* Bentuk kotak dengan sudut membulat */
+      .footer-links {
         display: flex;
         justify-content: center;
         align-items: center;
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        transition:
-          transform 0.2s,
-          background 0.3s;
+        gap: 8px;
+        font-size: 0.72rem;
+        color: #94a3b8;
       }
 
-      #audio-toggle:hover {
-        background: var(--text-dark);
-        transform: scale(1.05);
+      .footer-links a {
+        color: #94a3b8;
+        text-decoration: none;
+        transition: color 0.3s;
       }
 
-      #audio-toggle:active {
-        transform: scale(0.95);
+      .footer-links a:hover {
+        color: var(--gold-light);
       }
 
-      /* --- Animasi Piringan Hitam --- */
-      @keyframes spin {
-        100% {
-          transform: rotate(360deg);
+      .footer-dot {
+        width: 3px;
+        height: 3px;
+        background-color: #475569;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .footer-copy {
+        font-size: 0.65rem;
+        color: #475569;
+        margin-top: 12px;
+      }
+
+      /* --- Animations --- */
+      @keyframes fadeSlideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
 
-      .spin-animation {
-        animation: spin 4s linear infinite;
+      @keyframes fadeSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(25px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeScale {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
     </style>
   </head>
   <body>
     <div class="mobile-container">
-      <!-- Audio Placeholder -->
-      <audio id="bg-music" loop>
-        <source
-          src="https://everyayah.com/data/Alafasy_128kbps/030021.mp3"
-          type="audio/mpeg"
-        />
-      </audio>
-
-      <!-- Tombol Audio (Awalnya tersembunyi) -->
-      <div class="audio-wrapper" id="audio-wrapper" style="display: none">
-        <button id="audio-toggle" onclick="toggleAudio()">
-          <!-- SVG Piringan Hitam (Aktif/Berputar) -->
-          <svg
-            id="icon-record-playing"
-            class="spin-animation"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <circle cx="12" cy="12" r="3"></circle>
-            <circle cx="12" cy="12" r="1"></circle>
-            <path d="M12 6a6 6 0 0 1 6 6"></path>
-            <path d="M12 18a6 6 0 0 1-6-6"></path>
-          </svg>
-          <!-- SVG Piringan Hitam (Pause/Di-ban) -->
-          <svg
-            id="icon-record-paused"
-            style="display: none"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <circle cx="12" cy="12" r="3"></circle>
-            <circle cx="12" cy="12" r="1"></circle>
-            <line
-              x1="4.93"
-              y1="4.93"
-              x2="19.07"
-              y2="19.07"
-              stroke-width="2"
-            ></line>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Cover Section -->
-      <div id="cover">
-        <div class="cover-title">The Wedding Of</div>
-        <div class="cover-names serif">
-          Dzakiyyah <br />&<br />
-          Mu'adz
-        </div>
-        <div class="cover-date">11 . 04 . 2026</div>
-
-        <div class="guest-info">
-          <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
-          <div class="guest-name serif" id="guestNameDisplay">
-            Tamu Undangan
+      <!-- Header -->
+      <div class="header-section">
+        <div class="header-content">
+          <!-- Gift icon -->
+          <div class="header-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="8" width="18" height="4" rx="1"></rect>
+              <path d="M12 8v13"></path>
+              <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path>
+              <path d="M7.5 8a2.5 2.5 0 0 1 0-5C9 3 12 7 12 8H7.5z"></path>
+              <path d="M16.5 8a2.5 2.5 0 0 0 0-5C15 3 12 7 12 8h4.5z"></path>
+            </svg>
           </div>
+          <h1 class="header-title serif">Kado Kecil</h1>
+          <p class="header-subtitle">dari Santrikita Group</p>
+          <div class="divider-line"></div>
         </div>
-
-        <button class="btn-open" onclick="openInvitation()">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          Buka Undangan
-        </button>
       </div>
 
-      <!-- Main Content -->
-      <div id="main-content">
-        <!-- Pembukaan -->
-        <section>
-          <div class="content-wrapper">
-            <div
-              class="anim fade-in arabic"
-              style="
-                font-size: 2.5rem;
-                color: var(--gold);
-                margin-bottom: 15px;
-                font-weight: 400;
-                line-height: 1.5;
-              "
-            >
-              بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
-            </div>
-            <h2
-              class="anim slide-up serif"
-              style="
-                font-size: 1.4rem;
-                color: var(--text-dark);
-                margin-bottom: 20px;
-              "
-            >
-              Assalamu'alaikum Warahmatullahi Wabarakatuh
-            </h2>
-            <div class="divider-line anim fade-in"></div>
-            <p class="anim blur-in quran-verse">
-              "Dan orang-orang yang berkata: 'Ya Tuhan kami, anugerahkanlah
-              kepada kami pasangan kami dan keturunan kami sebagai penyejuk hati
-              kami. Dan jadikanlah kami imam bagi orang-orang yang bertakwa.'"
-              <br /><br /><strong
-                style="
-                  font-family: &quot;Inter&quot;, sans-serif;
-                  font-size: 0.85rem;
-                  color: var(--gold);
-                "
-                >(QS. Al-Furqan: 74)</strong
+      <!-- Cerita -->
+      <div class="story-section">
+        <div class="story-card">
+          <h3 class="serif">Cerita di Balik Kado</h3>
+          <div class="story-text">
+            <p>
+              Bermula dari seorang sahabat yang akan melangsungkan hari
+              bahagianya. Kami ingin memberikan sesuatu yang bermakna — bukan
+              sekadar ucapan, tapi sebuah hadiah kecil yang bisa dikenang.
+            </p>
+            <p>
+              Dari situlah lahir ide untuk membuatkan undangan digital berbasis
+              web. Sederhana, tapi dibuat dengan sepenuh hati. Bukan sebuah
+              layanan, bukan pula bisnis — murni sebuah kado kecil dari kami
+              untuk orang-orang terdekat yang kami sayangi.
+            </p>
+          </div>
+          <div class="story-signature">— Santrikita Group</div>
+        </div>
+      </div>
+
+      <!-- Daftar Undangan -->
+      <div class="list-section">
+        <div class="list-content">
+          <h2 class="list-title serif">Undangan</h2>
+          <p class="list-subtitle">Pilih undangan untuk membukanya</p>
+
+          <!-- Card: Dzakiyyah & Mu'adz -->
+          <a
+            href="./dzakiyyah-muadz/"
+            class="invitation-card"
+            id="card-dzakiyyah"
+            data-date="2026-04-11"
+          >
+            <div class="card-label">The Wedding Of</div>
+            <h3 class="card-names serif">Dzakiyyah &amp; Mu'adz</h3>
+            <div class="card-date">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-            </p>
-          </div>
-        </section>
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              11 April 2026
+            </div>
+            <div class="card-arrow">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </a>
 
-        <!-- Mempelai -->
-        <section
-          style="
-            background-color: white;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-          "
+          <!--
+            Tambahkan undangan baru di sini dengan format yang sama:
+
+            <a href="./nama-folder/" class="invitation-card">
+              <div class="card-label">The Wedding Of</div>
+              <h3 class="card-names serif">Nama & Nama</h3>
+              <div class="card-date">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Tanggal Acara
+              </div>
+              <div class="card-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+            </a>
+          -->
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="wa-section">
+        <p class="wa-text">
+          Ingin dibuatkan undangan digital juga?<br />
+          Hubungi kami melalui WhatsApp.
+        </p>
+        <a
+          href="https://wa.me/6281233168593?text=Assalamu'alaikum%2C%20saya%20tertarik%20dibuatkan%20undangan%20digital"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-wa"
+          id="btn-whatsapp"
         >
-          <div class="section-bg-flower"></div>
-          <div class="content-wrapper">
-            <p
-              class="anim slide-up"
-              style="margin-bottom: 30px; font-size: 0.95rem"
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+            />
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer-section">
+        <div class="footer-card">
+          <!-- Gift icon -->
+          <div class="footer-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="margin: 0 auto; display: block"
             >
-              Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami
-              bermaksud menyelenggarakan pernikahan putra-putri kami:
-            </p>
-
-            <div class="anim slide-right">
-              <h3 class="couple-name serif">Fenny Dzakiyyah Ramadhani</h3>
-              <p class="parent-name">
-                Putri Kedua dari Bpk. Sujatmoko & Ibu Tugiani, S. Ag
-              </p>
-            </div>
-
-            <div
-              class="anim fade-in"
-              style="
-                font-size: 3rem;
-                color: var(--gold);
-                margin: 20px 0;
-                font-family: &quot;Playfair Display&quot;, serif;
-                line-height: 1;
-              "
+              <rect x="3" y="8" width="18" height="4" rx="1"></rect>
+              <path d="M12 8v13"></path>
+              <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path>
+              <path d="M7.5 8a2.5 2.5 0 0 1 0-5C9 3 12 7 12 8H7.5z"></path>
+              <path d="M16.5 8a2.5 2.5 0 0 0 0-5C15 3 12 7 12 8h4.5z"></path>
+            </svg>
+          </div>
+          <div class="footer-domain">Santrikita Group</div>
+          <div class="footer-divider"></div>
+          <div class="footer-links">
+            <a
+              class="footer-links"
+              href="https://santrikita.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >santrikita</a
             >
-              &
-            </div>
-
-            <div class="anim slide-left">
-              <h3 class="couple-name serif">Mu'adz bin Abdul Aziz</h3>
-              <p class="parent-name">
-                Putra Pertama dari Bpk. Abdul Aziz Tula SP & Ibu ST Zainab, A.
-                Md
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Jadwal Acara -->
-        <section>
-          <h2 class="section-title serif anim fade-in">Rangkaian Acara</h2>
-          <p
-            class="anim slide-up"
-            style="margin-bottom: 40px; font-size: 0.9rem"
-          >
-            Insya Allah acara akan dilaksanakan pada:
-          </p>
-
-          <div class="event-card anim slide-up">
-            <h3 class="event-title serif">Ngunduh Mantu</h3>
-            <p class="event-detail"><strong>Sabtu, 28 Maret 2026</strong></p>
-            <p class="event-detail">pukul : 10.00 WITA - Selesai</p>
-            <div style="margin: 15px 0; border-top: 1px dashed #ddd"></div>
-            <p class="event-detail" style="font-size: 0.9rem">
-              <strong>Lokasi:</strong><br />
-              Bantaeng, Makassar,<br />
-              Sulawesi Selatan
-            </p>
-          </div>
-
-          <div class="event-card anim slide-up" style="transition-delay: 0.1s">
-            <h3 class="event-title serif">Resepsi</h3>
-            <p class="event-detail"><strong>Sabtu, 11 April 2026</strong></p>
-            <p class="event-detail">pukul : 10.00 WIB - Selesai</p>
-            <div style="margin: 15px 0; border-top: 1px dashed #ddd"></div>
-            <p class="event-detail" style="font-size: 0.9rem">
-              <strong>Lokasi:</strong><br />
-              Jalan Kenanga IV Sarirejo Natar,<br />
-              Lampung Selatan
-            </p>
-          </div>
-        </section>
-
-        <!-- Adab Walimah -->
-        <section style="padding-top: 0">
-          <div class="adab-card anim blur-in">
-            <h3 class="serif">Adab Walimah</h3>
-            <p
-              style="
-                text-align: center;
-                font-size: 0.9rem;
-                margin-bottom: 25px;
-                color: #cbd5e1;
-              "
+            <span class="footer-dot"></span>
+            <a
+              class="footer-links"
+              href="https://penakita.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >penakita</a
             >
-              Tanpa mengurangi rasa hormat, demi menjaga kehidmatan acara dan
-              sesuai sunnah, kami memohon agar tamu undangan memperhatikan adab
-              berikut:
-            </p>
-
-            <ul class="adab-list">
-              <li>
-                <strong>Tamu pria dan wanita dipisah.</strong> Mohon
-                pengertiannya untuk menempati area yang telah disediakan sesuai
-                gender.
-              </li>
-              <li>
-                <strong>Tidak diperkenankan mengambil gambar</strong>, berupa
-                foto ataupun video di area acara.
-              </li>
-              <li>
-                <strong>Mendo'akan kedua mempelai</strong> dengan doa kebaikan
-                dan keberkahan.
-              </li>
-            </ul>
           </div>
-        </section>
-
-        <!-- Turut Mengundang -->
-        <section
-          style="
-            background-color: white;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-          "
-        >
-          <h2
-            class="section-title serif anim fade-in"
-            style="font-size: 1.6rem; color: var(--text-dark)"
-          >
-            Turut Mengundang
-          </h2>
-          <div class="divider-line anim fade-in" style="margin-top: 20px"></div>
-
-          <div class="mengundang-list anim slide-up">
-            <p>Al-Ustadz Ahm Ishaq Muslim (Indramayu)</p>
-            <p>Al-Ustadz Qoumar Zaruddin Abdullah, Lc (Temanggung)</p>
-            <p>Al-Ustadz Abu Muhammad Farhan (Temanggung)</p>
-            <p>Bpk. Muhammad Yusuf Hanafi, ST</p>
-            <p>Bpk. Abdul Hakim, SE, MM (Jakarta Timur)</p>
-            <p>Bpk. Perwirabediprasetyo Utomo (Tangerang)</p>
-          </div>
-        </section>
-
-        <!-- Buku Tamu & RSVP -->
-        <section id="ucapan">
-          <h2 class="section-title serif anim fade-in">Buku Tamu</h2>
-          <p
-            class="anim slide-up"
-            style="font-size: 0.9rem; margin-bottom: 30px"
-          >
-            Tinggalkan doa dan pesan hangat untuk kedua mempelai.
-          </p>
-
-          <div class="guestbook-container anim slide-up">
-            <form id="guestForm">
-              <div class="form-group">
-                <label for="senderName">Nama Lengkap</label>
-                <input
-                  type="text"
-                  id="senderName"
-                  placeholder="Contoh: Budi Keluarga"
-                  required
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="attendanceStatus">Kehadiran</label>
-                <select
-                  id="attendanceStatus"
-                  style="
-                    width: 100%;
-                    padding: 14px;
-                    border: 1px solid #e5e7eb;
-                    border-radius: 10px;
-                    font-family: &quot;Inter&quot;, sans-serif;
-                    font-size: 0.95rem;
-                    background-color: #f9fafb;
-                  "
-                  required
-                >
-                  <option value="Hadir">Insya Allah Hadir</option>
-                  <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="senderMessage">Pesan & Doa</label>
-                <textarea
-                  id="senderMessage"
-                  rows="4"
-                  placeholder="Tuliskan doa untuk mempelai..."
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn-submit">Kirim Ucapan</button>
-            </form>
-
-            <div id="guest-list">
-              <!-- Dummy initial messages -->
-              <div class="guest-item">
-                <h4>
-                  Ibrohim Sairony <span class="badge-hadir" style="background:#fee2e2; color:#991b1b;">Tidak Hadir</span>
-                </h4>
-                <p>
-                  Barakallahu laka wa baraka 'alaika wa jama'a bainakuma fii
-                  khair. Semoga menjadi keluarga sakinah mawaddah warahmah.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Penutup -->
-        <section style="padding-bottom: 10px">
-          <div
-            class="divider-line anim fade-in"
-            style="margin-bottom: 30px"
-          ></div>
-          <p class="anim blur-in" style="font-size: 0.95rem; line-height: 1.8">
-            Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
-            Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu
-            kepada kedua mempelai.<br /><br /><strong
-              class="serif"
-              style="font-size: 1.2rem; color: var(--text-dark)"
-              >Wassalamu'alaikum Warahmatullahi Wabarakatuh.</strong
-            >
-          </p>
-
-          <h3
-            class="serif anim slide-up"
-            style="font-size: 1.8rem; color: var(--gold); margin-top: 40px"
-          >
-            Fenny & Mu'adz
-          </h3>
-
-          <div
-            class="anim fade-in"
-            style="
-              margin-top: 60px;
-              font-size: 0.7rem;
-              color: var(--text-main);
-              opacity: 0.4;
-            "
-          >
-            Kado kecil dari Ibrohim Sairony
-          </div>
-        </section>
+          <p class="footer-copy">&copy; 2026</p>
+        </div>
       </div>
     </div>
-
     <script>
-      // --- Parse URL Parameters untuk Nama Tamu ---
       document.addEventListener("DOMContentLoaded", () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const guestName = urlParams.get("to");
+        document
+          .querySelectorAll(".invitation-card[data-date]")
+          .forEach((card) => {
+            const eventDate = new Date(card.dataset.date + "T23:59:59");
+            const today = new Date();
+            const badge = document.createElement("div");
+            badge.classList.add("card-badge");
 
-        if (guestName) {
-          // Update tampilan nama tamu di cover
-          document.getElementById("guestNameDisplay").textContent = guestName;
-
-          // Opsional: Isi otomatis kolom nama di buku tamu dengan nama tersebut
-          const senderNameInput = document.getElementById("senderName");
-          if (senderNameInput) senderNameInput.value = guestName;
-        }
-      });
-
-      // Fungsi membuka undangan
-      function openInvitation() {
-        const cover = document.getElementById("cover");
-        const mainContent = document.getElementById("main-content");
-        const audio = document.getElementById("bg-music");
-
-        // Animasi cover slide ke atas
-        cover.style.transform = "translateY(-100%)";
-        cover.style.opacity = "0";
-
-        setTimeout(() => {
-          cover.style.display = "none";
-          mainContent.style.display = "block";
-
-          // Memberikan sedikit delay agar transisi opacity terlihat
-          setTimeout(() => {
-            mainContent.style.opacity = "1";
-            // Trigger Intersection Observer setelah konten terlihat
-            initObserver();
-            window.scrollTo(0, 0); // Reset scroll ke atas
-          }, 50);
-
-          // Menampilkan tombol audio
-          document.getElementById("audio-wrapper").style.display = "flex";
-
-          // Memulai audio
-          const playPromise = audio.play();
-          if (playPromise !== undefined) {
-            playPromise
-              .then((_) => {
-                // Berhasil auto-play, set icon ke pause
-                toggleAudioIcon(true);
-              })
-              .catch((error) => {
-                // Auto-play diblokir browser, set icon ke play
-                console.log("Auto-play diblokir oleh browser");
-                toggleAudioIcon(false);
-              });
-          }
-        }, 1000); // Sinkron dengan durasi transisi di CSS (1.2s)
-      }
-
-      // --- Fungsi Toggle Audio ---
-      function toggleAudio() {
-        const audio = document.getElementById("bg-music");
-        if (audio.paused) {
-          audio.play();
-          toggleAudioIcon(true);
-        } else {
-          audio.pause();
-          toggleAudioIcon(false);
-        }
-      }
-
-      // --- Fungsi Mengubah Ikon Audio ---
-      function toggleAudioIcon(isPlaying) {
-        document.getElementById("icon-record-playing").style.display = isPlaying
-          ? "block"
-          : "none";
-        document.getElementById("icon-record-paused").style.display = isPlaying
-          ? "none"
-          : "block";
-      }
-
-      // Fungsi Intersection Observer untuk animasi ketika scroll
-      function initObserver() {
-        const observerOptions = {
-          root: null,
-          rootMargin: "0px",
-          threshold: 0.15, // Animasi mulai ketika 15% elemen terlihat
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Tambahkan class 'visible' untuk men-trigger CSS transition
-              entry.target.classList.add("visible");
-              // Stop observasi elemen ini agar animasi tidak berulang saat discroll ke atas lagi
-              observer.unobserve(entry.target);
+            if (today <= eventDate) {
+              badge.classList.add("badge-upcoming");
+              badge.textContent = "Akan Datang";
+            } else {
+              badge.classList.add("badge-past");
+              badge.textContent = "Sudah Lewat";
             }
+
+            card.appendChild(badge);
           });
-        }, observerOptions);
-
-        const animatedElements = document.querySelectorAll(".anim");
-        animatedElements.forEach((el) => observer.observe(el));
-      }
-
-      // --- DOM Manipulation untuk Buku Tamu ---
-      const guestForm = document.getElementById("guestForm");
-      const guestList = document.getElementById("guest-list");
-
-      guestForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        // Mengambil data dari form
-        const nameInput = document.getElementById("senderName").value;
-        const statusInput = document.getElementById("attendanceStatus").value;
-        const messageInput = document.getElementById("senderMessage").value;
-
-        if (nameInput && messageInput) {
-          // Membuat kontainer untuk pesan baru
-          const newItem = document.createElement("div");
-          // Menyiapkan state awal untuk animasi fade in buatan
-          newItem.className = "guest-item";
-          newItem.style.opacity = "0";
-          newItem.style.transform = "scale(0.9)";
-
-          // Menyusun elemen HTML di dalamnya
-          let badgeHTML =
-            statusInput === "Hadir"
-              ? `<span class="badge-hadir">Hadir</span>`
-              : `<span class="badge-hadir" style="background:#fee2e2; color:#991b1b;">Tidak Hadir</span>`;
-
-          newItem.innerHTML = `
-                <h4>${nameInput} ${badgeHTML}</h4>
-                <p>${messageInput}</p>
-            `;
-
-          // Menambahkan elemen ke atas daftar (prepend)
-          guestList.prepend(newItem);
-
-          // Men-trigger animasi setelah elemen masuk ke DOM
-          requestAnimationFrame(() => {
-            newItem.style.opacity = "1";
-            newItem.style.transform = "scale(1)";
-          });
-
-          // Mengosongkan form text area (tapi biarkan nama jika sebelumnya terisi param 'to')
-          document.getElementById("senderMessage").value = "";
-        }
       });
     </script>
   </body>
