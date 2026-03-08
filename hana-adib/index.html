@@ -6,10 +6,7 @@
     <title>The Wedding of Adib & Hana</title>
     <!-- OpenGraph Meta Tags -->
     <meta property="og:title" content="The Wedding of Adib & Hana" />
-    <meta
-      property="og:description"
-      content="Dengan penuh rasa syukur dan kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam hari istimewa kami."
-    />
+    <meta property="og:description" content="Undangan pernikahan Adib & Hana" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/jpeg" />
@@ -1276,7 +1273,6 @@
                 <option value="">— Pilih konfirmasi —</option>
                 <option value="Hadir">✅ Hadir</option>
                 <option value="Tidak Hadir">❌ Tidak Hadir</option>
-                <option value="Masih Ragu">🤔 Masih Ragu</option>
               </select>
             </div>
             <div>
@@ -1355,6 +1351,9 @@
       const urlParams = new URLSearchParams(window.location.search);
       const guestName = urlParams.get("to") || "Tamu Undangan";
       document.getElementById("guestName").textContent = guestName;
+      if (urlParams.get("to")) {
+        document.getElementById("wishName").value = urlParams.get("to");
+      }
 
       // ── TANGGAL & WAKTU ───────────────────────────────────────
       // Format ISO: "YYYY-MM-DDTHH:MM:SS"
@@ -1552,26 +1551,29 @@
    FLOATING PETALS
 ============================================================ */
       function spawnPetals() {
-        for (let i = 0; i < 12; i++) {
-          setTimeout(() => {
-            const p = document.createElement("div");
-            p.className = "petal";
-            p.style.left = Math.random() * 100 + "vw";
-            p.style.animationDuration = Math.random() * 8 + 6 + "s";
-            p.style.animationDelay = Math.random() * 4 + "s";
-            p.style.width = Math.random() * 8 + 5 + "px";
-            p.style.height = p.style.width;
-            p.style.opacity = Math.random() * 0.5 + 0.3;
-            const hue =
-              Math.random() > 0.5
-                ? "rgba(201,168,76,0.7)"
-                : "rgba(74,144,196,0.5)";
-            p.style.background = hue;
-            document.body.appendChild(p);
-            setTimeout(() => p.remove(), 15000);
-          }, i * 600);
+        const currentPetals = document.querySelectorAll(".petal").length;
+        if (currentPetals < 30) {
+          for (let i = 0; i < 12; i++) {
+            setTimeout(() => {
+              const p = document.createElement("div");
+              p.className = "petal";
+              p.style.left = Math.random() * 100 + "vw";
+              p.style.animationDuration = Math.random() * 8 + 6 + "s";
+              p.style.animationDelay = Math.random() * 4 + "s";
+              p.style.width = Math.random() * 8 + 5 + "px";
+              p.style.height = p.style.width;
+              p.style.opacity = Math.random() * 0.5 + 0.3;
+              const hue =
+                Math.random() > 0.5
+                  ? "rgba(201,168,76,0.7)"
+                  : "rgba(74,144,196,0.5)";
+              p.style.background = hue;
+              document.body.appendChild(p);
+              setTimeout(() => p.remove(), 15000);
+            }, i * 600);
+          }
         }
-        setInterval(spawnPetals, 18000);
+        setTimeout(spawnPetals, 18000);
       }
 
       /* ============================================================
