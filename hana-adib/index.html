@@ -798,6 +798,12 @@
         line-height: 1.7;
         font-style: italic;
       }
+      .wish-attend-hadir {
+        color: #8be08b !important;
+      }
+      .wish-attend-tidak-hadir {
+        color: #e08b8b !important;
+      }
 
       /* ============================================================
      SECTION 7 – THANK YOU / CLOSING
@@ -1270,8 +1276,8 @@
             <div>
               <label class="form-label">Konfirmasi Kehadiran</label>
               <select class="form-select" id="wishAttend">
-                <option value="">— Pilih konfirmasi —</option>
-                <option value="Hadir">✅ Hadir</option>
+                <option value="Hadir" selected>✅ Hadir</option>
+
                 <option value="Tidak Hadir">❌ Tidak Hadir</option>
               </select>
             </div>
@@ -1527,15 +1533,20 @@
         }
 
         list.innerHTML = wishes
-          .map(
-            (w) => `
+          .map((w) => {
+            let attendClass = "";
+            if (w.attend === "Hadir") attendClass = "wish-attend-hadir";
+            if (w.attend === "Tidak Hadir")
+              attendClass = "wish-attend-tidak-hadir";
+
+            return `
     <div class="wish-card">
       <p class="wish-name">${escHtml(w.name)}</p>
-      <p class="wish-attend">${escHtml(w.attend)}</p>
+      <p class="wish-attend ${attendClass}">${escHtml(w.attend)}</p>
       <p class="wish-text">${escHtml(w.text)}</p>
     </div>
-  `,
-          )
+  `;
+          })
           .join("");
       }
 
